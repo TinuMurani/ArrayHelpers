@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30204.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArrayHelpersLibrary", "ArrayHelpersLibrary\ArrayHelpersLibrary.csproj", "{F8BC4AFB-5ED9-4C51-B498-82324AE955FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArrayHelpersConsoleApp", "ArrayHelpersConsoleApp\ArrayHelpersConsoleApp.csproj", "{C580E203-5E0F-47A4-A7AB-B6B66449D0EA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F8BC4AFB-5ED9-4C51-B498-82324AE955FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8BC4AFB-5ED9-4C51-B498-82324AE955FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8BC4AFB-5ED9-4C51-B498-82324AE955FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8BC4AFB-5ED9-4C51-B498-82324AE955FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C580E203-5E0F-47A4-A7AB-B6B66449D0EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C580E203-5E0F-47A4-A7AB-B6B66449D0EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C580E203-5E0F-47A4-A7AB-B6B66449D0EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C580E203-5E0F-47A4-A7AB-B6B66449D0EA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C45A53A0-DF23-4A41-820D-1A44F9F0D79E}
+	EndGlobalSection
+EndGlobal
