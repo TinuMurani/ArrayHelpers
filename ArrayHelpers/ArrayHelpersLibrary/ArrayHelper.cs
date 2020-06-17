@@ -81,7 +81,7 @@ namespace ArrayHelpersLibrary
             return new SearchResult<T>(true, this.Array[row, column]);
         }
 
-        public T[] SubArray(int fromPosition, int numberOfElements, ArrayOrder order = ArrayOrder.Unsorted)
+        public T[] SubArray(int fromPosition, int numberOfElements, ArraySort order = ArraySort.Unsorted)
         {
             if (fromPosition < 0 || fromPosition >= this.Array.Length || numberOfElements <= 0)
             {
