@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Net.Http.Headers;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
 namespace ArrayHelpersLibrary
@@ -69,12 +71,55 @@ namespace ArrayHelpersLibrary
             return false;
         }
 
-        //public SearchResult<T> ElementAt(int row, int column)
-        //{
-        //    if (row < 0 || column < 0)
-        //    {
-        //        return new SearchResult<T>(false, T);
-        //    }
-        //}
+        public SearchResult<T> ElementAt(int row, int column)
+        {
+            if ((row < 0 || column < 0) || (row >= this.Array.GetLength(0) || column >= this.Array.GetLength(1)))
+            {
+                return new SearchResult<T>(false, default);
+            }
+
+            return new SearchResult<T>(true, this.Array[row, column]);
+        }
+
+        public T[] SubArray(int fromPosition, int numberOfElements, ArrayOrder order = ArrayOrder.Unsorted)
+        {
+            if (fromPosition < 0 || fromPosition >= this.Array.Length || numberOfElements <= 0)
+            {
+                return new T[0];
+            }
+
+            int index = 0;
+            T[] singleArray = new T[this.Array.GetLength(0) * this.Array.GetLength(1)];
+
+            for (int i = 0; i < this.Array.GetLength(0); i++)
+            {
+                for (int j = 0; j < this.Array.GetLength(1); j++)
+                {
+                    singleArray[index] = this.Array[i, j];
+                    index++;
+                }
+            }
+
+            if (fromPosition + numberOfElements > singleArray.Length)
+            {
+                T[] result = new T[singleArray.Length - fromPosition];
+
+                for (int i = fromPosition, j = 0; i < singleArray.Length; i++, j++)
+                {
+                    result[j] = singleArray[i];
+                }
+
+                return result;
+            }
+
+            T[] single = new T[numberOfElements];
+
+            for (int i = fromPosition, j = 0; i < singleArray.Length && j < numberOfElements; i++, j++)
+            {
+                single[j] = singleArray[i];
+            }
+
+            return single;
+        }
     }
 }

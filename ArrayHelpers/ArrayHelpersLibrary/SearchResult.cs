@@ -11,7 +11,7 @@ namespace ArrayHelpersLibrary
 
         public SearchResult(bool isValid, T element)
         {
-            this.IsValid = IsValid;
+            this.IsValid = isValid;
             this.Element = element;
         }
     }
