@@ -34,15 +34,26 @@ namespace ArrayHelpersConsoleApp
 
             //Console.WriteLine($"Element at index [3, 1] is: { stringHelper.ElementAt(3, 1).Element }");
 
-            string[] newArray = stringHelper.SubArray(0, 11);
+            string[] newStringArray = stringHelper.SubArray(5, 11, ArraySort.Unsorted);
             StringBuilder sb = new StringBuilder();
 
-            for (int i = 0; i < newArray.Length; i++)
+            for (int i = 0; i < newStringArray.Length; i++)
             {
-                sb.Append($"{ newArray[i] } ");
+                sb.Append($"{ newStringArray[i] } ");
             }
 
             Console.WriteLine(sb.ToString());
+
+
+            int[] newIntArray = helper.SubArray(3, 11, ArraySort.Descending);
+            StringBuilder sb1 = new StringBuilder();
+
+            for (int i = 0; i < newIntArray.Length; i++)
+            {
+                sb1.Append($"{ newIntArray[i] } ");
+            }
+
+            Console.WriteLine(sb1.ToString());
 
             Console.ReadLine();
         }

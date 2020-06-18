@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -109,6 +110,8 @@ namespace ArrayHelpersLibrary
                     result[j] = singleArray[i];
                 }
 
+                result = SortArray(result, order);
+
                 return result;
             }
 
@@ -119,7 +122,28 @@ namespace ArrayHelpersLibrary
                 single[j] = singleArray[i];
             }
 
+            single = SortArray(single, order);
+
             return single;
+        }
+
+        private T[] SortArray(T[] input, ArraySort order)
+        {
+            switch (order)
+            {
+                case ArraySort.Ascending:
+                    System.Array.Sort(input);
+                    break;
+                case ArraySort.Descending:
+                    System.Array.Sort(input);
+                    System.Array.Reverse(input);
+                    break;
+               case ArraySort.Unsorted:
+                   default:
+                    break;
+            }
+
+            return input;
         }
     }
 }
