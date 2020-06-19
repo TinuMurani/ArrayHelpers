@@ -1,5 +1,6 @@
 ﻿using ArrayHelpersLibrary;
 using System;
+using System.Runtime.ExceptionServices;
 using System.Text;
 
 namespace ArrayHelpersConsoleApp
@@ -45,7 +46,7 @@ namespace ArrayHelpersConsoleApp
             Console.WriteLine(sb.ToString());
 
 
-            int[] newIntArray = helper.SubArray(3, 11, ArraySort.Descending);
+            int[] newIntArray = helper.SubArray(0, 6, ArraySort.Descending);
             StringBuilder sb1 = new StringBuilder();
 
             for (int i = 0; i < newIntArray.Length; i++)
@@ -54,6 +55,35 @@ namespace ArrayHelpersConsoleApp
             }
 
             Console.WriteLine(sb1.ToString());
+
+
+
+            int[] secondIntArray = helper.SubArray(0, 6, ArraySort.Ascending);
+            StringBuilder sb2 = new StringBuilder();
+
+            for (int i = 0; i < secondIntArray.Length; i++)
+            {
+                sb2.Append($"{ secondIntArray[i] } ");
+            }
+
+            Console.WriteLine(sb2.ToString());
+
+
+            int[] result = new int[newIntArray.Length];
+
+            for (int i = 0; i < newIntArray.Length; i++)
+            {
+                result[i] = newIntArray[i] + secondIntArray[i];
+            }
+
+            StringBuilder sb3 = new StringBuilder();
+
+            for (int i = 0; i < result.Length; i++)
+            {
+                sb3.Append($"{ result[i] } ");
+            }
+
+            Console.WriteLine(sb3.ToString());
 
             Console.ReadLine();
         }

@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http.Headers;
-using System.Security.Cryptography.X509Certificates;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 namespace ArrayHelpersLibrary
@@ -12,7 +7,7 @@ namespace ArrayHelpersLibrary
     public class ArrayHelper<T> : IEquatable<T>
     {
         public T[,] Array { get; }
-        
+
         public ArrayHelper(T[,] array)
         {
             this.Array = array ?? new T[0, 0];
@@ -138,12 +133,33 @@ namespace ArrayHelpersLibrary
                     System.Array.Sort(input);
                     System.Array.Reverse(input);
                     break;
-               case ArraySort.Unsorted:
-                   default:
+                case ArraySort.Unsorted:
+                default:
                     break;
             }
 
             return input;
         }
+
+        //public T[] AddArray(T[] firstArray, T[] secondArray)
+        //{
+        //    if (firstArray?.Length is 0 || secondArray?.Length is 0)
+        //    {
+        //        throw new ArgumentException("The arrays are null or have no items");
+        //    }
+
+        //    if (firstArray.Length != secondArray.Length)
+        //    {
+        //        throw new ArgumentException("The arrays you are trying to add have a different number of rows or columns");
+        //    }
+
+        //    T[] result = new T[firstArray.Length];
+
+        //    for (int i = 0; i < firstArray.Length; i++)
+        //    {
+        //        result[i] = firstArray[i] + secondArray[i];
+        //    }
+        //}
+
     }
 }
