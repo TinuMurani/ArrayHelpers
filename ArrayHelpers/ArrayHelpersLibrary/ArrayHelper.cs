@@ -4,7 +4,8 @@ using System.Text;
 
 namespace ArrayHelpersLibrary
 {
-    public class ArrayHelper<T> : IEquatable<T>
+    public class ArrayHelper<T> 
+        where T: IEquatable<T>//: IEquatable<T>
     {
         public T[,] Array { get; }
 
@@ -141,25 +142,27 @@ namespace ArrayHelpersLibrary
             return input;
         }
 
-        //public T[] AddArray(T[] firstArray, T[] secondArray)
-        //{
-        //    if (firstArray?.Length is 0 || secondArray?.Length is 0)
-        //    {
-        //        throw new ArgumentException("The arrays are null or have no items");
-        //    }
+        public int[] AddArray(int[] firstArray, int[] secondArray)
+        {
+            if (firstArray?.Length is 0 || secondArray?.Length is 0)
+            {
+                throw new ArgumentException("The arrays are null or have no items");
+            }
 
-        //    if (firstArray.Length != secondArray.Length)
-        //    {
-        //        throw new ArgumentException("The arrays you are trying to add have a different number of rows or columns");
-        //    }
+            if (firstArray.Length != secondArray.Length)
+            {
+                throw new ArgumentException("The arrays you are trying to add have a different number of rows or columns");
+            }
 
-        //    T[] result = new T[firstArray.Length];
+            int[] result = new int[firstArray.Length];
 
-        //    for (int i = 0; i < firstArray.Length; i++)
-        //    {
-        //        result[i] = firstArray[i] + secondArray[i];
-        //    }
-        //}
+            for (int i = 0; i < firstArray.Length; i++)
+            {
+                result[i] = firstArray[i] + secondArray[i];
+            }
+
+            return result;
+        }
 
     }
 }
