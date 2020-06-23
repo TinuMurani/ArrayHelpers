@@ -1,7 +1,7 @@
 ﻿using ArrayHelpersLibrary;
 using System;
 using System.Runtime.ExceptionServices;
-using System.Text;
+using System.Linq;
 
 namespace ArrayHelpersConsoleApp
 {
@@ -9,7 +9,7 @@ namespace ArrayHelpersConsoleApp
     {
         public delegate int[] AddArrays(int[] firstArray, int[] secondArray);
 
-        public delegate SearchResult<string> Func<in T, out TResult> (T[,] argument);
+        //public delegate SearchResult<string> Func<in T, in U, out result>(int[] input, int element);
 
         static void Main(string[] args)
         {
@@ -94,14 +94,9 @@ namespace ArrayHelpersConsoleApp
 
             #region Delegates Assignment
 
-            //AddArrays adition = delegate    (int[] firstArray, int[] secondArray)
+            //AddArrays adition = delegate (int[] firstArray, int[] secondArray)
             //{
-            //    if (firstArray?.Length is 0 || secondArray?.Length is 0)
-            //    {
-            //        return new int[0];
-            //    }
-
-            //    if (firstArray?.Length != secondArray?.Length)
+            //    if ((firstArray?.Length is 0 || secondArray?.Length is 0) || (firstArray?.Length != secondArray?.Length))
             //    {
             //        return new int[0];
             //    }
@@ -121,14 +116,19 @@ namespace ArrayHelpersConsoleApp
 
             //foreach (var item in newArray)
             //{
-            //    Console.WriteLine(item);
+            //    Console.Write($"{ item } ");
             //}
 
-            Func<SearchResult<string>> findElement = delegate ()
-            {
 
-            };
-            
+            foreach (var item in stringHelper.FindElement("Ion"))
+            {
+                Console.WriteLine($"Element { item.Value } is at position: { item.Key }");
+            }
+
+            foreach (var item in helper.FindElement(4))
+            {
+                Console.WriteLine($"Element { item.Value } is at position: { item.Key }");
+            }
 
             #endregion
 

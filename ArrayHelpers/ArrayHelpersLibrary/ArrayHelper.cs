@@ -167,18 +167,31 @@ namespace ArrayHelpersLibrary
             return result;
         }
         
-        //public IEnumerable<T> FindElement(T element)
-        //{
-        //    List<SearchResult<string>> result = new List<SearchResult<string>>();
+        private Dictionary<string, T> ConvertArrayToDictionary()
+        {
+            Dictionary<string, T> result = new Dictionary<string, T>();
 
-        //    T[] subArray = SubArray(0, Array.Length, ArraySort.Unsorted);
+            for (int i = 0; i < this.Array.GetLength(0); i++)
+            {
+                for (int j = 0; j < this.Array.GetLength(1); j++)
+                {
+                    result.Add($"[{i},{j}]", Array[i, j]);
+                }
+            }
 
-        //    for (int i = 0; i < subArray.Length; i++)
-        //    {
-        //        result.Add(new SearchResult<string>(true, $"[));
-        //    }
+            return result;
+        }
 
-        //    return result.Where(x => x.Equals(element));
-        //}
+        public Dictionary<string, T> FindElement(T element)
+        {
+            Dictionary<string, T> output = new Dictionary<string, T>();
+
+            foreach (var item in this.ConvertArrayToDictionary().Where(x => x.Value.Equals(element)))
+            {
+                output.Add(item.Key, item.Value);
+            }
+
+            return output;
+        }
     }
 }
