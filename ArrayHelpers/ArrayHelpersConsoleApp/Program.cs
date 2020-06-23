@@ -9,6 +9,8 @@ namespace ArrayHelpersConsoleApp
     {
         public delegate int[] AddArrays(int[] firstArray, int[] secondArray);
 
+        public delegate SearchResult<string> Func<in T, out TResult> (T[,] argument);
+
         static void Main(string[] args)
         {
             int[,] array = new int[2, 3]
@@ -92,35 +94,41 @@ namespace ArrayHelpersConsoleApp
 
             #region Delegates Assignment
 
-            AddArrays adition = delegate(int[] firstArray, int[] secondArray)
+            //AddArrays adition = delegate    (int[] firstArray, int[] secondArray)
+            //{
+            //    if (firstArray?.Length is 0 || secondArray?.Length is 0)
+            //    {
+            //        return new int[0];
+            //    }
+
+            //    if (firstArray?.Length != secondArray?.Length)
+            //    {
+            //        return new int[0];
+            //    }
+
+            //    int[] result = new int[firstArray.Length];
+
+            //    for (int i = 0; i < firstArray.Length; i++)
+            //    {
+            //        result[i] = firstArray[i] + secondArray[i];
+            //    }
+
+            //    return result;
+            //};
+
+            //int[] newArray = adition(helper.SubArray(0, helper.Array.Length, ArraySort.Unsorted),
+            //    helper.SubArray(0, helper.Array.Length, ArraySort.Unsorted));
+
+            //foreach (var item in newArray)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            Func<SearchResult<string>> findElement = delegate ()
             {
-                if (firstArray?.Length is 0 || secondArray?.Length is 0)
-                {
-                    return new int[0];
-                }
 
-                if (firstArray?.Length != secondArray?.Length)
-                {
-                    return new int[0];
-                }
-
-                int[] result = new int[firstArray.Length];
-
-                for (int i = 0; i < firstArray.Length; i++)
-                {
-                    result[i] = firstArray[i] + secondArray[i];
-                }
-
-                return result;
             };
-
-            int[] newArray = adition(helper.SubArray(0, helper.Array.Length, ArraySort.Unsorted),
-                helper.SubArray(0, helper.Array.Length, ArraySort.Unsorted));
-
-            foreach (var item in newArray)
-            {
-                Console.WriteLine(item);
-            }
+            
 
             #endregion
 

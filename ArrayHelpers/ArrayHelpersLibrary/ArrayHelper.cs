@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace ArrayHelpersLibrary
 {
+
     public class ArrayHelper<T> 
         where T: IEquatable<T>//: IEquatable<T>
     {
@@ -163,6 +166,19 @@ namespace ArrayHelpersLibrary
 
             return result;
         }
+        
+        //public IEnumerable<T> FindElement(T element)
+        //{
+        //    List<SearchResult<string>> result = new List<SearchResult<string>>();
 
+        //    T[] subArray = SubArray(0, Array.Length, ArraySort.Unsorted);
+
+        //    for (int i = 0; i < subArray.Length; i++)
+        //    {
+        //        result.Add(new SearchResult<string>(true, $"[));
+        //    }
+
+        //    return result.Where(x => x.Equals(element));
+        //}
     }
 }
