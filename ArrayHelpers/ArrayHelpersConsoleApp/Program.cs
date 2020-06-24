@@ -2,14 +2,13 @@
 using System;
 using System.Runtime.ExceptionServices;
 using System.Linq;
+using System.Text;
 
 namespace ArrayHelpersConsoleApp
 {
     class Program
     {
         public delegate int[] AddArrays(int[] firstArray, int[] secondArray);
-
-        //public delegate SearchResult<string> Func<in T, in U, out result>(int[] input, int element);
 
         static void Main(string[] args)
         {
@@ -94,6 +93,7 @@ namespace ArrayHelpersConsoleApp
 
             #region Delegates Assignment
 
+            ////First requirement: Add two arrays
             //AddArrays adition = delegate (int[] firstArray, int[] secondArray)
             //{
             //    if ((firstArray?.Length is 0 || secondArray?.Length is 0) || (firstArray?.Length != secondArray?.Length))
@@ -119,7 +119,7 @@ namespace ArrayHelpersConsoleApp
             //    Console.Write($"{ item } ");
             //}
 
-
+            //Second requirement: Find an element and return its position
             foreach (var item in stringHelper.FindElement("Ion"))
             {
                 Console.WriteLine($"Element { item.Value } is at position: { item.Key }");
@@ -129,6 +129,27 @@ namespace ArrayHelpersConsoleApp
             {
                 Console.WriteLine($"Element { item.Value } is at position: { item.Key }");
             }
+
+            //Third requirement: remove all occurences of the given element, if found
+            StringBuilder sb = new StringBuilder();
+            sb.Append("Array before element removal: ");
+
+            foreach (var item in helper.SubArray(0, helper.Array.Length, ArraySort.Unsorted))
+            {
+                sb.Append($"{ item } ");
+            }
+
+            sb.AppendLine("");
+            sb.Append("Array after element removal: ");
+
+            var output = helper.RemoveAllOccurences(4);
+
+            foreach (var item in output)
+            {
+                sb.Append($"{ item } ");
+            }
+
+            Console.WriteLine(sb);
 
             #endregion
 

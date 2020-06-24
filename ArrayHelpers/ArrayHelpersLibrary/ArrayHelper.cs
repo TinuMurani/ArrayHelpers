@@ -193,5 +193,32 @@ namespace ArrayHelpersLibrary
 
             return output;
         }
+
+        private delegate T[] RemoveElementDelegate(T[] array, T elementToRemove);
+
+        public T[] RemoveAllOccurences(T elementToRemove)
+        {
+            RemoveElementDelegate removeElement = delegate(T[] array, T element)
+            {
+                if (array?.Length is 0)
+                {
+                    return new T[0];
+                }
+
+                var count = array.Where(x => !x.Equals(element));
+
+                T[] result = new T[count.Count()];
+
+                for (int i = 0; i < count.Count(); i++)
+                {
+                    result[i] = count.ElementAt(i);
+                }
+
+                return result;
+            };
+
+            return removeElement(this.SubArray(0, this.Array.Length, ArraySort.Unsorted), elementToRemove);
+        }
+
     }
 }
